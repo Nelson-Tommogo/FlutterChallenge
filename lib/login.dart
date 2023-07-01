@@ -2,14 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
+
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  State<Login> createState() => _LoginState();
 }
 
 class _LoginScreenState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
-  String _email,
-  String password;
+  String  email, password;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class _LoginScreenState extends State<Login> {
                   }
                   return null;
                 },
-                onSaved: (input) => _email = input,
+                onSaved: (input) => email = input,
                 decoration: InputDecoration(
                   labelText: 'Email',
                 ),
@@ -43,7 +44,7 @@ class _LoginScreenState extends State<Login> {
                   }
                   return null;
                 },
-                onSaved: (input) => _password = input,
+                onSaved: (input) => password = input,
                 decoration: InputDecoration(
                   labelText: 'Password',
                 ),
