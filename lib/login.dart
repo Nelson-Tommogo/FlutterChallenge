@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'main.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -13,9 +14,11 @@ class _LoginScreenState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    String? password;
+    String? email;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login Screen'),
+        title: Text('Login'),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -26,7 +29,7 @@ class _LoginScreenState extends State<Login> {
             children: <Widget>[
               TextFormField(
                 validator: (input) {
-                  if (input.isEmpty) {
+                  if (input!.isEmpty) {
                     return 'Please enter an email';
                   }
                   return null;
@@ -38,7 +41,7 @@ class _LoginScreenState extends State<Login> {
               ),
               TextFormField(
                 validator: (input) {
-                  if (input.length < 6) {
+                  if (input!.length < 6) {
                     return 'Your password needs to be at least 6 characters';
                   }
                   return null;
@@ -51,8 +54,8 @@ class _LoginScreenState extends State<Login> {
               ),
               RaisedButton(
                 onPressed: () {
-                  if (_formKey.currentState.validate()) {
-                    _formKey.currentState.save();
+                  if (_formKey.currentState!.validate()) {
+                    _formKey.currentState!.save();
                     // This is where you can handle the login logic
                   }
                 },
