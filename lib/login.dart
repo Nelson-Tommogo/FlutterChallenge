@@ -5,12 +5,11 @@ class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Login> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
-  String  email, password;
 
   @override
   Widget build(BuildContext context) {
